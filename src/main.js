@@ -2,6 +2,7 @@ import "./components/app-bar.js";
 import "./components/note-item.js";
 import { notesData } from "./notes.js";
 import "./components/note-input.js";
+import "./style.css";
 
 const notesListEl = document.getElementById("notes-list");
 notesData.forEach((note) => {

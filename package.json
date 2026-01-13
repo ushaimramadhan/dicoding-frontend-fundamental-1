@@ -4,7 +4,8 @@
   "description": "Front-End web sederhana sebagai submission akhir kelas **Belajar Fundamental Front-End Web Development**.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start-dev": "webpack serve",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -13,7 +14,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/ushaimramadhan/dicoding-frontend-fundamental-1/issues"
   },
