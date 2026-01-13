@@ -2,11 +2,11 @@ class NoteItem extends HTMLElement {
   constructor() {
     super();
     this._note = {
-        id: 0,
-        title: "NEED_DATA",
-        body: "NEED_DATA",
-        createdAt: "",
-        archived: false,
+      id: 0,
+      title: 'NEED_DATA',
+      body: 'NEED_DATA',
+      createdAt: '',
+      archived: false,
     };
   }
 
@@ -24,13 +24,13 @@ class NoteItem extends HTMLElement {
         </div>
         `;
 
-    const deleteBtn = this.querySelector(".btn-delete");
-    deleteBtn.addEventListener("click", () => {
+    const deleteBtn = this.querySelector('.btn-delete');
+    deleteBtn.addEventListener('click', () => {
       this.dispatchEvent(
-        new CustomEvent("delete-note", {
+        new CustomEvent('delete-note', {
           detail: { id: this._note.id },
           bubbles: true,
-        })
+        }),
       );
     });
   }
@@ -40,4 +40,4 @@ class NoteItem extends HTMLElement {
   }
 }
 
-customElements.define("note-item", NoteItem);
+customElements.define('note-item', NoteItem);

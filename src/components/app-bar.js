@@ -1,18 +1,18 @@
 class AppBar extends HTMLElement {
   // 1. Definisikan atribut apa saja yang mau dipantau
   static get observedAttributes() {
-    return ["title"];
+    return ['title'];
   }
 
   constructor() {
     super();
     // Inisialisasi title default jika atribut tidak diisi
-    this._title = "Notes App";
+    this._title = 'Notes App';
   }
 
   // 2. Fungsi ini jalan OTOMATIS saat atribut 'title' di HTML berubah/dipasang
   attributeChangedCallback(name, oldValue, newValue) {
-    if (name === "title") {
+    if (name === 'title') {
       this._title = newValue; // Update properti internal
       this.render(); // Render ulang tampilan
     }
@@ -20,8 +20,8 @@ class AppBar extends HTMLElement {
 
   connectedCallback() {
     // Ambil nilai awal dari atribut HTML (jika ada) saat pertama kali dimuat
-    if (this.hasAttribute("title")) {
-      this._title = this.getAttribute("title");
+    if (this.hasAttribute('title')) {
+      this._title = this.getAttribute('title');
     }
     this.render();
   }
@@ -35,4 +35,4 @@ class AppBar extends HTMLElement {
   }
 }
 
-customElements.define("app-bar", AppBar);
+customElements.define('app-bar', AppBar);

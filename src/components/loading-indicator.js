@@ -1,15 +1,15 @@
 class LoadingIndicator extends HTMLElement {
-    constructor() {
-        super();
-        this.shadowDOM = this.attachShadow({ mode: "open" });
-    }
+  constructor() {
+    super();
+    this.shadowDOM = this.attachShadow({ mode: 'open' });
+  }
 
-    connectedCallback() {
-        this.render();
-    }
+  connectedCallback() {
+    this.render();
+  }
 
-    render() {
-        this.shadowDOM.innerHTML = `
+  render() {
+    this.shadowDOM.innerHTML = `
             <style>
                 .loading-container {
                     position: fixed;
@@ -37,7 +37,7 @@ class LoadingIndicator extends HTMLElement {
                 <div class="spinner"></div>
             </div>
         `;
-    }
+  }
 }
 
-customElements.define("loading-indicator", LoadingIndicator);
+customElements.define('loading-indicator', LoadingIndicator);

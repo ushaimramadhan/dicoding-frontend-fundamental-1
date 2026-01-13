@@ -30,24 +30,24 @@ class NoteInput extends HTMLElement {
     `;
 
     // 1. Ambil elemen
-    const form = this.querySelector("form");
-    const titleInput = this.querySelector("#title");
-    const titleError = this.querySelector("#titleValidation");
-    const bodyInput = this.querySelector("#body");
-    const bodyError = this.querySelector("#bodyValidation");
+    const form = this.querySelector('form');
+    const titleInput = this.querySelector('#title');
+    const titleError = this.querySelector('#titleValidation');
+    const bodyInput = this.querySelector('#body');
+    const bodyError = this.querySelector('#bodyValidation');
 
     // 2. Fungsi Logika Validasi (Cek aturan di sini)
     const customValidationHandler = (event) => {
-      event.target.setCustomValidity(""); // Reset validitas bawaan
+      event.target.setCustomValidity(''); // Reset validitas bawaan
 
       if (event.target.validity.valueMissing) {
-        event.target.setCustomValidity("Wajib diisi.");
+        event.target.setCustomValidity('Wajib diisi.');
         return;
       }
 
       // Aturan Khusus: Minimal 6 karakter
-      if (event.target.id === "body" && event.target.value.length < 6) {
-        event.target.setCustomValidity("Minimal panjang karakter adalah 6.");
+      if (event.target.id === 'body' && event.target.value.length < 6) {
+        event.target.setCustomValidity('Minimal panjang karakter adalah 6.');
         return;
       }
     };
@@ -59,29 +59,29 @@ class NoteInput extends HTMLElement {
       if (!isValid) {
         // Jika tidak valid: Tampilkan pesan & warna merah
         errorElement.innerText = event.target.validationMessage;
-        event.target.classList.add("invalid");
+        event.target.classList.add('invalid');
       } else {
         // Jika valid: Bersihkan pesan & warna merah
-        errorElement.innerText = "";
-        event.target.classList.remove("invalid");
+        errorElement.innerText = '';
+        event.target.classList.remove('invalid');
       }
     };
 
     // 4. Pasang Event Listener 'blur' (Jalan saat KLIK LUAR)
     //    Ini yang akan memicu pesan error muncul seketika.
-    titleInput.addEventListener("blur", (event) => {
+    titleInput.addEventListener('blur', (event) => {
       customValidationHandler(event); // Cek aturan
       updateValidationUI(event, titleError); // Tampilkan hasil
     });
 
-    bodyInput.addEventListener("blur", (event) => {
+    bodyInput.addEventListener('blur', (event) => {
       customValidationHandler(event);
       updateValidationUI(event, bodyError);
     });
 
     // 5. Pasang Event Listener 'input' (Jalan saat MENGETIK)
     //    Ini biar error-nya hilang real-time kalau user sudah memperbaiki tulisannya.
-    titleInput.addEventListener("input", (event) => {
+    titleInput.addEventListener('input', (event) => {
       customValidationHandler(event);
       // Hanya update UI jika inputan jadi valid (hilangkan merah)
       // Biar user ga diganggu merah-merah pas baru ngetik 1 huruf
@@ -90,7 +90,7 @@ class NoteInput extends HTMLElement {
       }
     });
 
-    bodyInput.addEventListener("input", (event) => {
+    bodyInput.addEventListener('input', (event) => {
       customValidationHandler(event);
       if (event.target.validity.valid) {
         updateValidationUI(event, bodyError);
@@ -98,7 +98,7 @@ class NoteInput extends HTMLElement {
     });
 
     // 6. Handle Submit Utama
-    form.addEventListener("submit", (event) => {
+    form.addEventListener('submit', (event) => {
       event.preventDefault();
 
       // Cek validitas semua input dulu sebelum proses
@@ -115,20 +115,20 @@ class NoteInput extends HTMLElement {
       };
 
       this.dispatchEvent(
-        new CustomEvent("submit-note", {
+        new CustomEvent('submit-note', {
           detail: newNote,
           bubbles: true,
-        })
+        }),
       );
 
       form.reset();
       // Bersihkan sisa style error setelah submit berhasil
-      titleError.innerText = "";
-      bodyError.innerText = "";
-      titleInput.classList.remove("invalid");
-      bodyInput.classList.remove("invalid");
+      titleError.innerText = '';
+      bodyError.innerText = '';
+      titleInput.classList.remove('invalid');
+      bodyInput.classList.remove('invalid');
     });
   }
 }
 
-customElements.define("note-input", NoteInput);
+customElements.define('note-input', NoteInput);
