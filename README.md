@@ -1,19 +1,16 @@
 # Notes App - Front-End Fundamental Submission
 
-Front-End web sederhana sebagai submission akhir kelas **Belajar Fundamental Front-End Web Development**.
+Aplikasi pengelolaan catatan sederhana yang dibangun sebagai proyek akhir untuk kelas **Belajar Fundamental Front-End Web Development** di Dicoding Academy.
 
 ## Fitur Utama
+* **Custom Elements:** Mengimplementasikan Web Components untuk UI yang modular.
+* **Manajemen Catatan:** Menambah dan menghapus catatan secara dinamis.
+* **Responsive Layout:** Tampilan adaptif di berbagai ukuran layar menggunakan **CSS Grid** dan **Flexbox**.
+* **Form Validation:** Validasi input sisi klien untuk memastikan data yang dimasukkan benar.
 
-- **Membangun formulir dengan baik dan benar.**
-- **Penyusunan layouting dengan CSS Grid Layout.**
-- **Membangun komponen UI dengan Web Component.**
-
-## Screenshots
-
-![App Screenshot](url_gambar_disini.png)
-
-## Teknologi
-
-- **Language:** JavaScript
-- **UI:** HTML & CSS
-- **Components:** CSS Grid & Web Component
+## Teknologi yang Digunakan
+* **JavaScript**
+* **HTML & CSS**
+* **Web Components** (Custom Elements)
+* **Webpack** (Module Bundler & Minification)
+* **NPM** (Package Management)
